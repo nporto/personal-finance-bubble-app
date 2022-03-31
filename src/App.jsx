@@ -1,4 +1,4 @@
-import { Container, Box, Grid } from '@chakra-ui/react'
+import { Container, Box, Grid, Stack } from '@chakra-ui/react'
 import { useBubblesCreation } from './contexts/BubblesCreationContext'
 import Bubble from './components/Bubble'
 import BubbleStatisticsModal from './components/BubbleStatisticsModalComponents/BubbleStatisticsModal'
@@ -9,15 +9,42 @@ function App() {
   const { bubbles, displayStatisticsModal, displayMainBox, getBudgetExpenses } = useBubblesCreation()
 
   return (
-    <Box height="100%" width="100%" >
+    <Box 
+    height={{ base: 'auto', md: 'auto', lg: '100%'}} 
+    width="100%" 
+    padding={{ base: '2rem', md: '1rem', lg: '0.8rem' }}
+    display="flex"
+    alignItems="center"
+    justifyContent="center">
       {displayStatisticsModal && <BubbleStatisticsModal />}
-      <TotalSpentAmountBar />
-      <Box height="100%" width="100%" display={displayMainBox} alignItems="center" flexDirection="row">
-        <Container maxW="container.sm" maxWidth="500px" marginLeft="6rem">
+      <Box 
+      height="100%" 
+      width="100%" 
+      display={displayMainBox} 
+      alignItems="center" 
+      flexDirection={{ base: 'column', md: 'column', lg: 'row' }}>
+        <Stack 
+        flexDirection="column" 
+        spacing={6} 
+        marginBottom={{ base: '0rem', md: '0rem', lg: '4rem' }}
+        maxW="container.sm" 
+        maxWidth="500px" 
+        marginLeft={{ base: '0rem', md: '0rem', lg: '6rem' }}>
+          <TotalSpentAmountBar />
           <Form />
-        </Container>
-        <Container height="100%" maxW="container.xl" display="flex" alignItems="center" justifyContent="center">
-          <Grid templateColumns='repeat(3, 1fr)' gap={10} height="80%" width="80%">
+        </Stack>
+        <Container 
+        height={{base: 'auto', md: 'auto', lg: '100%'}}
+        maxW="container.xl" 
+        display="flex" 
+        alignItems="center" 
+        justifyContent="center" 
+        marginTop="20px">
+          <Grid 
+          templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(1, 1fr)', lg: 'repeat(3, 1fr)' }}
+          gap={10} 
+          height={{base: 'auto', md: 'auto', lg: '80%'}}
+          width={{ base: 'auto', md: 'auto', lg: '80%'}}>
           {bubbles.map(bubble => {
             const amount = getBudgetExpenses(bubble.id).reduce(
               (total, expense) => parseInt(total) + parseInt(expense.cost),

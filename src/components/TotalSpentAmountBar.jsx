@@ -39,7 +39,7 @@ function TotalSpentAmountBar() {
   const barColor = changeSpentAmountBarColor()
 
   return (
-    <Box position="absolute" top="6rem" left="6rem" display={displayMainBox} >
+    <Box display={displayMainBox} >
       <Stack spacing={4}>
         <Stack spacing={2}>
           <Heading fontSize="3xl">Total Spent Amount: {totalSpentAmount}</Heading>

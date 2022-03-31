@@ -6,7 +6,12 @@ function AddExpense() {
       const { handleExpenseReasonChange, handleExpenseCostChange, clickedBubbleSpentAmount, expenseCost, expenseReason, handleAddExpenseFormSubmit } = useBubblesCreation()
 
   return (
-      <Stack width="45%" spacing={6} display="flex" justifyContent="center" alignItems="center">
+      <Stack 
+      width={{ base: '100%', md: '100%', lg: '45%' }} 
+      spacing={6} 
+      display="flex" 
+      justifyContent="center" 
+      alignItems="center">
             <Heading size="xl">Add expense</Heading>
             <Box width="70%">
                   <Heading size="lg">Expense reason</Heading>

@@ -15,13 +15,31 @@ function BubbleStatisticsModal() {
           )
 
   return (
-    <Box position="relative" left="5%" top="10%" height="80%" width="90%" backgroundColor="white" borderRadius="0.6rem" display="flex" flexDirection="row">
+    <Box 
+    height={{ base: 'auto', md: 'auto', lg: '80%' }}
+    width="90%" 
+    backgroundColor="white" 
+    borderRadius="0.6rem" 
+    display="flex" 
+    flexDirection={{ base: 'column', md: 'column', lg: 'row' }}>
             <Box position="relative" top="1rem" left="1rem">
                   <Button onClick={handleModalCloseClick}><CloseIcon /></Button>
             </Box>     
-            <Box display="flex" flexDirection="row" width="100%">
-                  <Box width="25%" display="flex" justifyContent="center" alignItems="center" marginLeft="5rem">
-                        <Bubble height="400px" width="400px" id={clickedBubble[0].id} spentAmount={amount} name={clickedBubble[0].name} totalBudget={clickedBubble[0].totalBudget} />
+            <Box display="flex" flexDirection={{ base: 'column', md: 'column', lg: 'row' }} width="100%">
+                  <Box 
+                  width={{ base: '100%', md: '100%', lg: '25%' }} 
+                  display="flex" 
+                  justifyContent="center" 
+                  alignItems="center" 
+                  marginLeft={{ base: '0', md: '0', lg: '5rem' }}
+                  marginBottom={{ base: '1.5rem', md: '1.5rem', lg: '0' }}>
+                        <Bubble 
+                        height={{ base: '180px', md: '200px', lg: '400px' }} 
+                        width={{ base: '60%', md: '60%', lg: '400px' }} 
+                        id={clickedBubble[0].id} 
+                        spentAmount={amount} 
+                        name={clickedBubble[0].name} 
+                        totalBudget={clickedBubble[0].totalBudget} />
                   </Box>
                   <AddExpense />
                   <ExpenseHistory />
