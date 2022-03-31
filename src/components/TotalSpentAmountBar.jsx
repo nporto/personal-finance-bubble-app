@@ -45,7 +45,7 @@ function TotalSpentAmountBar() {
           <Heading fontSize="3xl">Total Spent Amount: {totalSpentAmount}</Heading>
           <Heading fontSize="3xl">Total Amount: {totalAmount}</Heading>
         </Stack>
-        <Progress hasStripe isAnimated minWidth="400px" maxWidth="500px" height="35px" value={spentAmountPercentage} colorScheme={barColor} />
+        <Progress hasStripe isAnimated height="35px" value={spentAmountPercentage} colorScheme={barColor} />
       </Stack>
       
     </Box>

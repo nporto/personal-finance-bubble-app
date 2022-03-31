@@ -11,7 +11,7 @@ function App() {
   return (
     <Box 
     height={{ base: 'auto', md: 'auto', lg: '100%'}} 
-    width="100%" 
+    maxW="100%"
     padding={{ base: '2rem', md: '1rem', lg: '0.8rem' }}
     display="flex"
     alignItems="center"
@@ -24,11 +24,9 @@ function App() {
       alignItems="center" 
       flexDirection={{ base: 'column', md: 'column', lg: 'row' }}>
         <Stack 
-        flexDirection="column" 
+        direction="column" 
         spacing={6} 
-        marginBottom={{ base: '0rem', md: '0rem', lg: '4rem' }}
-        maxW="container.sm" 
-        maxWidth="500px" 
+        marginBottom={{ base: '0rem', md: '0rem', lg: '4rem' }} 
         marginLeft={{ base: '0rem', md: '0rem', lg: '6rem' }}>
           <TotalSpentAmountBar />
           <Form />
