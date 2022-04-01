@@ -1,15 +1,15 @@
 import { Box, Button } from '@chakra-ui/react'
 import { useBubblesCreation } from '../../contexts/BubblesCreationContext'
 import Bubble from '../Bubble'
-import { CloseIcon } from '@chakra-ui/icons'
+import { CloseIcon, DeleteIcon } from '@chakra-ui/icons'
 import ExpenseHistory from './ExpenseHistory'
 import AddExpense from './AddExpense'
 
 function BubbleStatisticsModal() {
 
-      const { handleModalCloseClick, clickedBubble, getBudgetExpenses, deployBubble } = useBubblesCreation()
+      const { handleModalCloseClick, clickedBubble, getBudgetExpenses, handleDeleteBubbleClick } = useBubblesCreation()
 
-      const amount = getBudgetExpenses(clickedBubble[0].id).reduce(
+      const amount = getBudgetExpenses(clickedBubble.id).reduce(
             (total, expense) => parseInt(total) + parseInt(expense.cost),
             0
           )
@@ -31,15 +31,24 @@ function BubbleStatisticsModal() {
                   display="flex" 
                   justifyContent="center" 
                   alignItems="center" 
-                  marginLeft={{ base: '0', md: '0', lg: '5rem' }}
+                  flexDirection="column"
+                  marginLeft={{ base: '0', md: '0', lg: '3rem' }}
                   marginBottom={{ base: '1.5rem', md: '1.5rem', lg: '0' }}>
                         <Bubble 
-                        height={{ base: '180px', md: '200px', lg: '400px' }} 
-                        width={{ base: '60%', md: '60%', lg: '400px' }} 
-                        id={clickedBubble[0].id} 
+                        height={{ base: '180px', md: '200px', lg: '55%' }} 
+                        width={{ base: '60%', md: '60%', lg: '100%' }} 
+                        id={clickedBubble.id} 
                         spentAmount={amount} 
-                        name={clickedBubble[0].name} 
-                        totalBudget={clickedBubble[0].totalBudget} />
+                        name={clickedBubble.name} 
+                        totalBudget={clickedBubble.totalBudget} />
+                        <Button 
+                        marginTop="2rem" 
+                        colorScheme="whatsapp"
+                        fontSize="xl" 
+                        color="white" 
+                        data-id={clickedBubble.id} 
+                        onClick={handleDeleteBubbleClick}
+                        >Delete Bubble<DeleteIcon marginLeft="0.6rem" /></Button>
                   </Box>
                   <AddExpense />
                   <ExpenseHistory />

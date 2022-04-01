@@ -56,13 +56,18 @@ export const BubblesCreationProvider = ({ children }) => {
                   setDisplayStatisticsModal(true)
                   setDisplayMainBox("none")    
                   
-                  setClickedBubble(bubbles.filter(bubble => bubble['id'] == event.target.dataset.id))
+                  setClickedBubble(bubbles.filter(bubble => bubble['id'] == event.target.dataset.id)[0])
             }
       }
 
       const handleDeleteBubbleClick = (event) => {
-            //setBubbles(bubbles.filter(bubble => bubble['id']!==clickedBubble[0].id))
-            console.log(event.target)
+            if (displayStatisticsModal == true) {
+                  setDisplayStatisticsModal(false)
+                  setDisplayMainBox("flex")    
+                  
+                  setExpenses([...expenses].filter(expense => expense['bubbleId'] !== event.target.dataset.id))
+                  setBubbles([...bubbles].filter(bubble => bubble['id'] !== event.target.dataset.id))
+            }
       }
 
       //Modal Logic
@@ -90,7 +95,7 @@ export const BubblesCreationProvider = ({ children }) => {
       const handleAddExpenseFormSubmit = () => {
             if(expenseCost.length > 0 && expenseReason.length > 0) {
 
-                  const bubbleId = clickedBubble[0].id
+                  const bubbleId = clickedBubble.id
                   const date = new Date().toLocaleString()
 
                   const newExpense = {
@@ -106,6 +111,10 @@ export const BubblesCreationProvider = ({ children }) => {
                   setExpenseReason("")
                   setExpenseCost("")
             }
+      }
+
+      const handleDeleteExpenseClick = (event) => {
+            setExpenses(expenses.filter(expense => expense['id'] !== event.target.dataset.id))
       }
 
       function getBudgetExpenses(bubbleId) {
@@ -135,7 +144,8 @@ export const BubblesCreationProvider = ({ children }) => {
                   handleAddExpenseFormSubmit,
                   clickedBubble,
                   getBudgetExpenses,
-                  handleDeleteBubbleClick
+                  handleDeleteBubbleClick,
+                  handleDeleteExpenseClick,
             }}>
                   {children}
             </BubblesCreationContext.Provider>

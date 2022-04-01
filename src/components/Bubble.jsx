@@ -3,7 +3,7 @@ import { useBubblesCreation } from '../contexts/BubblesCreationContext'
 
 function Bubble(props) {
 
-  const { handleBubbleClick, handleDeleteBubbleIcon } = useBubblesCreation()
+  const { handleBubbleClick } = useBubblesCreation()
 
   return (
     <Stack
@@ -18,8 +18,8 @@ function Bubble(props) {
     justifyContent="center" 
     flexDirection="column" 
     spacing={4}>
-      <Heading as="h3" size="lg" color="white">{props.name}</Heading>
-      <Heading as="h1" size="lg" color="white">{props.spentAmount}/{props.totalBudget}</Heading>
+      <Heading data-id={props.id} as="h3" size="lg" color="white">{props.name}</Heading>
+      <Heading data-id={props.id} as="h1" size="lg" color="white">{props.spentAmount}/{props.totalBudget}</Heading>
     </Stack>
   )
 }
