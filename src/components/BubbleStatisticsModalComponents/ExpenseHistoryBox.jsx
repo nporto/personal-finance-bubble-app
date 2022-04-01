@@ -19,9 +19,13 @@ function ExpenseHistoryBox(props) {
                   <Text fontSize="xl" fontWeight="bold">{props.expenseReason}</Text>
                   <Text fontSize="xl">{props.expenseCost}</Text>
             </Box>
-            <Stack flexDirection="column" spacing={0.1}>
+            <Stack flexDirection="column" spacing={0.1} maxWidth="40%">
                   <Text align="right" fontSize="xl" fontWeight="bold">{props.date}</Text>
-                  <Button colorScheme="whatsapp" data-id={props.id} onClick={handleDeleteExpenseClick}>Delete<DeleteIcon marginLeft="0.3rem" /></Button>
+                  <Button 
+                  colorScheme="whatsapp" 
+                  data-id={props.id} 
+                  onClick={handleDeleteExpenseClick}
+                  >Delete<DeleteIcon marginLeft="0.3rem" /></Button>
             </Stack>
       </Stack>
   )

@@ -42,7 +42,7 @@ function BubbleStatisticsModal() {
                         name={clickedBubble.name} 
                         totalBudget={clickedBubble.totalBudget} />
                         <Button 
-                        marginTop="2rem" 
+                        marginTop={{ base: '0.7rem', md: '1rem', lg: '2rem' }}
                         colorScheme="whatsapp"
                         fontSize="xl" 
                         color="white" 
