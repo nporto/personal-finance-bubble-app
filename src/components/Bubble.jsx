@@ -3,10 +3,11 @@ import { useBubblesCreation } from '../contexts/BubblesCreationContext'
 
 function Bubble(props) {
 
-  const { handleBubbleClick } = useBubblesCreation()
+  const { handleBubbleClick, bubbleCursor } = useBubblesCreation()
 
   return (
     <Stack
+    cursor={bubbleCursor}
     onClick={handleBubbleClick}
     data-id={props.id} 
     height={props.height} 

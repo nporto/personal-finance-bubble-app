@@ -49,6 +49,7 @@ export const BubblesCreationProvider = ({ children }) => {
 // Bubbles Logic
 
       const [clickedBubble, setClickedBubble] = useState()
+      const [bubbleCursor, setBubbleCursor] = useState("pointer")
 
       const handleBubbleClick = (event) => {
             event.preventDefault()
@@ -56,6 +57,7 @@ export const BubblesCreationProvider = ({ children }) => {
                   setDisplayStatisticsModal(true)
                   setDisplayMainBox("none")    
                   
+                  setBubbleCursor("default")
                   setClickedBubble(bubbles.filter(bubble => bubble['id'] == event.target.dataset.id)[0])
             }
       }
@@ -78,6 +80,7 @@ export const BubblesCreationProvider = ({ children }) => {
       const handleModalCloseClick = () => {
             setDisplayStatisticsModal(false)
             setDisplayMainBox("flex")
+            setBubbleCursor("pointer")
       }
 
       const [expenseReason, setExpenseReason] = useState("");
@@ -146,6 +149,7 @@ export const BubblesCreationProvider = ({ children }) => {
                   getBudgetExpenses,
                   handleDeleteBubbleClick,
                   handleDeleteExpenseClick,
+                  bubbleCursor
             }}>
                   {children}
             </BubblesCreationContext.Provider>
