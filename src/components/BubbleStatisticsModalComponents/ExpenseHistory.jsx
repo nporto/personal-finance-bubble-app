@@ -16,7 +16,7 @@ function ExpenseHistory() {
     marginRight={{ base: '0.6rem', md: '0.6rem', lg: '1rem' }}
     marginLeft={{ base: '0.6rem', md: '0.6rem', lg: '0rem' }}
     marginTop={{ base: '1.5rem', md: '1.5rem', lg: '2rem' }}
-    marginBottom={{ base: '0rem', md: '0rem', lg: '1rem' }}
+    marginBottom={{ base: '1rem', md: '1rem', lg: '1rem' }}
     width={{ base: '100%', md: '100%', lg: '30%' }}
     spacing={6}>
       <Heading as="h2" size="xl" color="black">History</Heading>
