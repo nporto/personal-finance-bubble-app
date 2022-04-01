@@ -22,6 +22,7 @@ function ExpenseHistoryBox(props) {
             <Stack flexDirection="column" spacing={0.1} maxWidth="40%">
                   <Text align="right" fontSize="xl" fontWeight="bold">{props.date}</Text>
                   <Button 
+                  color="white"
                   colorScheme="whatsapp" 
                   data-id={props.id} 
                   onClick={handleDeleteExpenseClick}

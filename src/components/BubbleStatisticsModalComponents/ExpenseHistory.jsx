@@ -12,9 +12,7 @@ function ExpenseHistory() {
     <Stack
     display="flex" 
     alignItems="center" 
-    justifyContent="center"
     flexDirection="column"
-    
     marginTop={{ base: '1.5rem', md: '1.5rem', lg: '2rem' }}
     marginBottom={{ base: '1rem', md: '1rem', lg: '1rem' }}
     width={{ base: '100%', md: '100%', lg: '30%' }}
