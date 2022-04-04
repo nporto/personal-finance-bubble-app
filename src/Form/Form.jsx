@@ -18,7 +18,7 @@ function Form() {
                   value={nameInputValue}
                   onChange={handleNameInputChange}
                   type="text" 
-                  placeholder="Titulo"
+                  placeholder="Category"
                   _placeholder={{ opacity: 1, color: 'gray.500' }}
                   borderColor="gray.600"
                   color="gray.300"
@@ -27,7 +27,7 @@ function Form() {
                   value={totalBudgetInputValue}
                   onChange={handleTotalBudgetChange} 
                   type="number" 
-                  placeholder="Monto total" 
+                  placeholder="Total budget" 
                   _placeholder={{ opacity: 1, color: 'gray.500' }} 
                   borderColor="gray.600" 
                   color="gray.300" 

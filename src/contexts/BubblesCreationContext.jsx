@@ -24,13 +24,46 @@ export const BubblesCreationProvider = ({ children }) => {
             setTotalBudgetInputValue(event.target.value)
       }
 
+      function bubbleCreationHeight(totalBudget) {
+            if (totalBudget < 5000) {
+                  return "150px"
+            } else if (totalBudget < 10000) {
+                  return "175px"
+            } else if (totalBudget < 15000) {
+                  return "200px"
+            } else if (totalBudget < 20000) {
+                  return "225px"
+            } else if (totalBudget < 25000) {
+                  return "250px"
+            } else {
+                  return "275px"
+            }
+
+            
+      }
+
+      function bubbleCreationWidth(totalBudget) {
+            if (totalBudget < 5000) {
+                  return "30%"
+            } else if (totalBudget < 10000) {
+                  return "60%"
+            } else if (totalBudget > 10000) {
+                  return "100%"
+            }
+
+
+            
+      }
+
       const handleFormSubmitClick = () => {
             if (nameInputValue.length > 0 && totalBudgetInputValue > 0) {
                   const newBubble = {
                         id: uuidV4(),
                         totalBudget: totalBudgetInputValue,
                         name: nameInputValue,
-                        expenses: []
+                        expenses: [],
+                        height: bubbleCreationHeight(totalBudgetInputValue),
+                        width: bubbleCreationWidth(totalBudgetInputValue)
                   }
 
                   setBubbles(prevBubbles => {

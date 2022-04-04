@@ -51,8 +51,8 @@ function App() {
             return (
               <Bubble 
               id={bubble['id']} 
-              height="250px" 
-              width="250px" 
+              height={bubble['height']}
+              width="auto"
               key={bubble['id']} 
               totalBudget={bubble['totalBudget']} 
               name={bubble['name']}
