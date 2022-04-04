@@ -38,8 +38,6 @@ export const BubblesCreationProvider = ({ children }) => {
             } else {
                   return "275px"
             }
-
-            
       }
 
       function bubbleCreationWidth(totalBudget) {
@@ -50,9 +48,6 @@ export const BubblesCreationProvider = ({ children }) => {
             } else if (totalBudget > 10000) {
                   return "100%"
             }
-
-
-            
       }
 
       const handleFormSubmitClick = () => {
@@ -99,7 +94,8 @@ export const BubblesCreationProvider = ({ children }) => {
             if (displayStatisticsModal == true) {
                   setDisplayStatisticsModal(false)
                   setDisplayMainBox("flex")    
-                  
+                  setBubbleCursor("pointer")
+
                   setExpenses([...expenses].filter(expense => expense['bubbleId'] !== event.target.dataset.id))
                   setBubbles([...bubbles].filter(bubble => bubble['id'] !== event.target.dataset.id))
             }
